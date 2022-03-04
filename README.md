@@ -14,7 +14,6 @@ Wordley is a Wordle copycat using Node.js, Express, Postgres, Sequelize, and Rea
 **Run console with models loaded**   
 `npm run console`
 
-**Sequelize CLI**
-View list of Sequelize CLI commands:
+**Sequelize CLI**   
+View list of Sequelize CLI commands:  
 `npx sequelize-cli --help`  
-
