@@ -10,3 +10,6 @@ Install dependencies
 
 Run app  
 `npm run start`
+
+Run console with models loaded  
+`npm run console`

@@ -6,7 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const db = require("./app/models");
+const db = require("./models");
 
 db.sequelize.sync();
 
@@ -19,8 +19,8 @@ db.sequelize
     console.error('ERROR - Unable to connect to database:', err)
   })
 
-const indexRouter = require('./app/routes/index');
-const usersRouter = require('./app/routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
