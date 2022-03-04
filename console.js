@@ -5,7 +5,9 @@ const run = async () => {
   const r = repl.start('wordle > ')
 
   r.context.models = require('./models');
-  r.context.User = r.context.models.User
+  Object.keys(r.context.models).forEach((model) => {
+    r.context[model] = r.context.models[model]
+  })
 }
 
 run()

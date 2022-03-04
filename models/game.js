@@ -1,27 +1,24 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class Game extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      this.belongsTo(models.User)
-      this.belongsTo(models.DailyWord)
+  const Game = sequelize.define("game", {
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    dailyWordId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    completedAt: {
+      type: DataTypes.DATE
     }
-  }
-  Game.init({
-    user_id: DataTypes.INTEGER,
-    daily_word_id: DataTypes.INTEGER,
-    completed_at: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'Game',
-    tableName: 'games'
+
   });
+
+  Game.associate = (models) => {
+    Game.belongsTo(models.User)
+    Game.belongsTo(models.DailyWord)
+  }
   return Game;
 };

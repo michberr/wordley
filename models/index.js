@@ -30,8 +30,11 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    const capitalizedModel = model.name[0].toUpperCase() + model.name.slice(1);
+    db[capitalizedModel] = model;
   });
+
+console.log('db', db)
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
@@ -39,8 +42,8 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-// db.users = require("./user.js")(sequelize, Sequelize);
 
 module.exports = db;
