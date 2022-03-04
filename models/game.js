@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     completedAt: {
       type: DataTypes.DATE
+    },
+    won: {
+      type: DataTypes.BOOLEAN
     }
 
   });

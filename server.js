@@ -21,6 +21,7 @@ db.sequelize
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const daily
 
 const app = express();
 
